@@ -1,11 +1,11 @@
-
-
-
+import "./style.scss"
+import {BrowserRouter  } from "react-router"
+import AppRoutes from "./routes"
 const App = ( )=>{
 
   return (
     <>
-    <h1>Hllo</h1>
+      <AppRoutes/>
     </>
   )
 }
