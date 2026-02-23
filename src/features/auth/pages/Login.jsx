@@ -21,8 +21,8 @@ const Login = () => {
 
 
     //clear input fileds after login
-    // setEmail("")
-    // setPassword("")
+    setEmail("")
+    setPassword("")
   }
 
   return (
