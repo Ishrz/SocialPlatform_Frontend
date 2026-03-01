@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./style.scss";
+import "./styles/style.scss";
 import { Link } from "react-router";
 import axios from "axios"
 
