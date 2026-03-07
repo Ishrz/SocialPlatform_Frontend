@@ -1,36 +1,53 @@
-import axios from "axios"
+import axios from "axios";
 
+const api = axios.create({
+  baseURL: "http://127.0.0.1:3000/v1/api/user",
+  withCredentials: true,
+});
 
-export const registration = async (username, password, email,bio,profilepic) =>{
+export const registration = async (
+  username,
+  password,
+  email,
+  bio,
+  profilepic
+) => {
+  try {
+    const response = await api.post("/registration", {
+      username,
+      email,
+      password,
+      bio,
+      profilepic,
+    });
 
-    const response = await axios.post("http://127.0.0.1:3000/v1/api/user/registration",
-        {
-            username,
-            email,
-            password,
-            bio,
-            profilepic
-        },
-        {
-            withCredentials:true
-        }
-    )
+    console.log(response);
+    return response.data;
+  } catch (err) {
+    console.log(err.message);
+  }
+};
 
-    console.log(response)
-    return response.data
+export const login = async (email, password) => {
+  try {
+    const response = await api.post("/login", {
+      email,
+      password,
+    });
 
-}
+    return response.data;
+  } catch (err) {
+    console.log(err.message);
+  }
+};
 
-export const login = async (email,password) =>{
-    const response = await axios.post("http://127.0.0.1:3000/v1/api/user/login",
-        {
-            email,
-            password
-        },
-        {
-            withCredentials:true
-        }
-    )
+export const getMe = async () =>{
+    try{
 
-    return response.data
+        const response = await api.get("/get-me")
+        console.log(response)
+
+    }catch(err){
+        console.log(err.messsage)
+    }
 }
