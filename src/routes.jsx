@@ -6,14 +6,12 @@ import { Navigate } from "react-router";
 
 const AppRoutes = () => {
 
-  const useNavigate=Navigate()
 
-  loginButton=`<button onClick={useNavigate(/login)}>Login</button>`
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={loginButton} />
+        <Route path="/" element={<h1>Home Page</h1>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
