@@ -1,18 +1,19 @@
 import { createContext } from "react";
 import { registration, login, getMe } from "./services/auth.api";
-
-const authContext = createContext(null);
+import { useState } from "react";
+export const authContext = createContext(null);
 
 export function AuthProvider({ children }) {
 
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = async (email, password) => {
+  async function handelLogin (email, password){
     setLoading(true)
     try {
       const response = await login(email, password);
       setUser(response);
+      return response
       
     } catch (err) {
       console.log(err.message);
@@ -35,7 +36,7 @@ export function AuthProvider({ children }) {
   }
 
   return(
-    <authContext.Provider value={{user,loading,handleLogin,handleRegister}} >
+    <authContext.Provider value={{user,loading,handelLogin,handleRegister}} >
       {children}
     </authContext.Provider>
   )

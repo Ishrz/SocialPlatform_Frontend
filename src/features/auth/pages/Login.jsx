@@ -1,30 +1,30 @@
 import React, { useState } from "react";
 import "./styles/style.scss";
 import { Link } from "react-router";
-import axios from "axios";
+import { useAuth } from "../Hooks/useAuth";
 
-import {login} from "../services/auth.api.js"
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  
+  const {handelLogin,loading} = useAuth()
 
   const submitHandler = async (e) => {
     e.preventDefault();
     // console.log(email);
     // console.log(password);
 
-   
-
-    
-    const response = await login(email,password)
-
-    console.log(response);
+    const response =await handelLogin(email,password)
+    console.log(response)
 
     //clear input fileds after login
     setEmail("");
     setPassword("");
   };
+
+  if(loading) return <h1>Loading......</h1>
 
   return (
     <main>
