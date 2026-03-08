@@ -1,21 +1,33 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
-import { registration } from "../services/auth.api";
+import { useAuth } from "../Hooks/useAuth";
+
 const Register = () => {
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState("");
   const [bio, setbio] = useState("");
   const [profilepic, setprofilepic] = useState("");
+
+  const {handleRegister,loading} = useAuth()
   
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    const response = await registration(username, password, email,bio,profilepic);
+    const response = await handleRegister(username, password, email,bio,profilepic);
     console.log(response);
+
+    //clearing input fields
+    // setEmail("")
+    // setUsername("")
+    // setPassword("")
+    // setbio("")
+    // setprofilepic("")
   };
 
+  if(loading) return <h1>Loading.....</h1>
   return (
     <main>
       <div className="form_container">

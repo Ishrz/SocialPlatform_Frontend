@@ -13,9 +13,7 @@ const Login = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    // console.log(email);
-    // console.log(password);
-
+  
     const response =await handelLogin(email,password)
     console.log(response)
 

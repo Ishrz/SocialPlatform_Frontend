@@ -28,6 +28,7 @@ export function AuthProvider({ children }) {
     try{
       const response = await registration(username,password,email,bio,profilepic)
       setUser(response)
+      return response
     }catch(err){
       console.log(err.message)
     }finally{

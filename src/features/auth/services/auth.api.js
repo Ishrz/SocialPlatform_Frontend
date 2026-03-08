@@ -21,7 +21,7 @@ export const registration = async (
       profilepic,
     });
 
-    console.log(response);
+
     return response.data;
   } catch (err) {
     console.log(err.message);
