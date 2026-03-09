@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./styles/style.scss";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useAuth } from "../Hooks/useAuth";
 
 
@@ -8,6 +8,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate()
   
   const {handelLogin,loading} = useAuth()
 
@@ -16,6 +17,8 @@ const Login = () => {
   
     const response =await handelLogin(email,password)
     console.log(response)
+
+    navigate("/")
 
     //clear input fileds after login
     setEmail("");
