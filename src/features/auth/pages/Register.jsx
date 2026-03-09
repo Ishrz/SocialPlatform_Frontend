@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useAuth } from "../Hooks/useAuth";
 
 const Register = () => {
 
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState(null);
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [bio, setbio] = useState("");
   const [profilepic, setprofilepic] = useState("");
 
   const {handleRegister,loading} = useAuth()
+
+  const navigate=useNavigate()
   
 
   const submitHandler = async (e) => {
@@ -18,6 +20,8 @@ const Register = () => {
 
     const response = await handleRegister(username, password, email,bio,profilepic);
     console.log(response);
+
+    navigate("/")
 
     //clearing input fields
     // setEmail("")
