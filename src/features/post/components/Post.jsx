@@ -1,6 +1,11 @@
 import { RiBookmarkLine, RiChat4Line, RiHeartLine, RiShareForwardLine } from "@remixicon/react";
+import { usePost } from "../hooks/usePost";
+import { useEffect } from "react";
 
-const Post = ({user,post}) => {
+const Post =({user,post}) => {
+
+
+
   return (
     <main>
         <div className="post">

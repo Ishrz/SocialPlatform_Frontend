@@ -1,9 +1,9 @@
 import { createContext, useState } from "react";
 
 
-const postContext = createContext(null)
+export const PostContext = createContext()
 
-export const postContextProvider = ({children}) =>{
+export const PostContextProvider = ({children}) =>{
     const [loading, setLoading]=useState(false)
 
     const [post , setPost] = useState(null)
@@ -11,8 +11,8 @@ export const postContextProvider = ({children}) =>{
     const [feed , setFeed] = useState(null)
 
     return(
-        <postContextProvider value={{loading,setLoading,post,setPost,feed,setFeed}}>
+        <PostContext.Provider value={{loading,setLoading,post,setPost,feed,setFeed}}>
             {children}
-        </postContextProvider>
+        </PostContext.Provider>
     )
 } 
