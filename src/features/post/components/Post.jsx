@@ -12,14 +12,14 @@ const Post =({user,post}) => {
             <div className="top">
               <div className="user_profile">
                <div className="imageWarapper">
-                 <img src="https://images.pexels.com/photos/36414427/pexels-photo-36414427.jpeg " alt="userProfile" />
+                 <img src={user.profilepic ? user.profilepic : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnVvDx9Kezwg0D77WzdAUzjOEHf1WEqQ3-fA&s "} />
                </div>
               </div>
-              <p className="username">userName</p>
+              <p className="username">{user.username}</p>
             </div>
 
             <div className="post-img">
-              <img className="img" src="https://images.pexels.com/photos/36300699/pexels-photo-36300699.jpeg" />
+              <img className="img" src={post.imgUrl} />
             </div>
             <div className="icons">
               <div className="left">
@@ -40,7 +40,7 @@ const Post =({user,post}) => {
               </div>
             </div>
             <div className="captionDiv">
-              <p className="caption">Caption</p>
+              <p className="caption">{post.caption}</p>
             </div>
           </div>
     </main>

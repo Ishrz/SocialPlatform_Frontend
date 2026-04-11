@@ -2,26 +2,24 @@ import { getfeed } from "../services/post.api";
 import { useContext, useEffect } from "react";
 import { PostContext } from "../Post.context";
 
-export const usePost =async () =>{
+export const usePost = () =>{
 
     const {loading, setLoading,post,setPost,feed,setFeed} = useContext(PostContext)
 
-    const handelGetFeed = async () =>{
-      
+        const handleGetFeed = async () => {
         setLoading(true)
         const data = await getfeed()
-        console.log(data)
+        setFeed(data.posts.reverse())
         setLoading(false)
-
-
+       
     }
 
-    // useEffect(()=>{
-    //     handelGetFeed()
-    // },[])
+    useEffect(()=>{
+        handleGetFeed
+    },[])
 
     return {
-        feed,post,loading,handelGetFeed
+        feed,post,loading,handleGetFeed
     }
 
 
