@@ -23,8 +23,8 @@ const Post =({user,post}) => {
             </div>
             <div className="icons">
               <div className="left">
-                <button>
-                   <RiHeartLine className="like"/>
+                <button className="">
+                   <RiHeartLine className={`like ${post.isLiked ? `isLiked` : ``} `} />
                    </button>
               <button>
                <RiChat4Line className="comment"/>

@@ -1,4 +1,4 @@
-// @import "../../../globalStyle/style.scss";
+@import "../../../globalStyle/style.scss";
 
 
 
@@ -14,31 +14,43 @@
         width: 100%;
 
         .posts {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
             width: 100%;
+            background-color: rgb(179, 174, 174);
 
             .post {
                 width: 100%;
-
+                background-color: rgb(235, 233, 240);
+                border-radius: 5px;
+                padding-bottom: 5px;
                 .top {
 
-                    display: flex;
+                   display: flex;
                     align-items: center;
                     gap: 0.5rem;
                     padding: 0.1rem;
-
                     .user_profile {
-
+                        display: flex;
+                        align-items: center;
+                        width: 30px;
+                        height: 30px;
+                        margin-inline: 0.5rem;
+                        border-radius: 50%;
+                        border: 2px solid red;
                         .imageWrapper {
-                            background: conic-gradient(red, black, blue);
+                            display: flex;
+                            align-items: center;
                             width: 100%;
-
+                            
+                            img {
+                                width: 3rem;
+                                border-radius: 50%;
+                                aspect-ratio: 1/1;
+                            }
                         }
 
-                        img {
-                            width: 3rem;
-                            border-radius: 50%;
-                            aspect-ratio: 1/1;
-                        }
                     }
                 }
 
@@ -83,6 +95,10 @@
 
                             .like, .comment, .share {
                                 color: rgb(202, 77, 77);
+                            }
+
+                            .isLiked{
+                                background-color: red;
                             }
                         }
                     }
