@@ -12,3 +12,10 @@ export async function getfeed(){
     return response.data
 
 }
+
+export async function postLike(postId){
+
+  const response = await api.post("/v1/api/post/likes/"+ postId)
+  return response.data
+
+}

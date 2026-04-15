@@ -2,9 +2,14 @@ import { RiBookmarkLine, RiChat4Line, RiHeartLine, RiShareForwardLine } from "@r
 import { usePost } from "../hooks/usePost";
 import { useEffect } from "react";
 
-const Post =({user,post}) => {
+const Post =({user,post,handleLike}) => {
 
+  
 
+  // const likeHandler = async (postId)=>{
+  //   const data =await  handleLike(postId)
+  //   console.log(data)
+  // }
 
   return (
     <main>
@@ -23,7 +28,7 @@ const Post =({user,post}) => {
             </div>
             <div className="icons">
               <div className="left">
-                <button className="">
+                <button onClick={()=>handleLike(post._id) } className="">
                    <RiHeartLine className={`like ${post.isLiked ? `isLiked` : ``} `} />
                    </button>
               <button>

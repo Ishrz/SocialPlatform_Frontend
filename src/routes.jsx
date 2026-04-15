@@ -2,13 +2,12 @@
 import { createBrowserRouter } from "react-router";
 import Login from "./features/auth/pages/Login";
 import Register from "./features/auth/pages/Register";
-import { useNavigate} from "react-router";
-// import HomePage from "./features/components/HomePage"; 
+import { useNavigate } from "react-router";
+// import HomePage from "./features/components/HomePage";
 import Feed from "./features/post/pages/Feed";
+import CreatePost from "./features/post/pages/CreatePost";
 
 // const AppRoutes = () => {
-
-
 
 //   return (
 //     <BrowserRouter>
@@ -22,20 +21,21 @@ import Feed from "./features/post/pages/Feed";
 // };
 // export default AppRoutes;
 
-
-  
-
 export const router = createBrowserRouter([
   {
-    path:"/",
-    Component:Feed
+    path: "/",
+    Component: Feed,
   },
   {
-    path:"/login",
-    Component:Login
+    path: "/login",
+    Component: Login,
   },
   {
-    path:"/register",
-    Component:Register
-  }
-])
+    path: "/register",
+    Component: Register,
+  },
+  {
+    path: "/create-post",
+    Component: CreatePost,
+  },
+]);

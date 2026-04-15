@@ -1,4 +1,4 @@
-import { getfeed } from "../services/post.api";
+import { getfeed  ,postLike} from "../services/post.api";
 import { useContext, useEffect } from "react";
 import { PostContext } from "../Post.context";
 
@@ -14,12 +14,19 @@ export const usePost = () =>{
        
     }
 
+        const handleLike = async (postId) =>{
+            const data = await postLike(postId)
+            handleGetFeed()
+            // setFeed([data.post ,...feed])
+            // setFeed(data.posts.reverse)
+        }
+
     useEffect(()=>{
         handleGetFeed
     },[])
 
     return {
-        feed,post,loading,handleGetFeed
+        feed,post,loading,handleGetFeed , handleLike
     }
 
 
