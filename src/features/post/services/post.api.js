@@ -25,3 +25,18 @@ export async function postUnLike(postId){
   const response = await api.post("/v1/api/post/unLike/" + postId)
   return response.data
 }
+
+export async function createPost(imageFile,caption){
+
+  const formData = new FormData()
+
+  formData.append("imgUrl" , imageFile)
+  formData.append("caption" , caption)
+
+  const response = await api.post("/v1/api/post/uploadPost" , formData)
+  return response.data
+
+
+
+
+}

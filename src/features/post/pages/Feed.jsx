@@ -12,13 +12,13 @@ const Feed = () => {
   useEffect(()=>{
    
       handleGetFeed()
-      console.log(feed)
+     
    
   },[])
 
   if(loading || !feed) return <main><h1>Feed is loading</h1></main>
 
-  console.log(feed)
+
 
   return (
     <main className="feedPage">
@@ -28,7 +28,7 @@ const Feed = () => {
           {/* <Post/> */}
           {feed.map(post =>{
             return(
-              <Post user={post.userId} post={post} handleLike={handleLike} handleUnLike={handleUnLike} />
+              <Post id={post.userId} user={post.userId} post={post} handleLike={handleLike} handleUnLike={handleUnLike} />
             )
           })}
         </div>
